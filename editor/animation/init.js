@@ -40,10 +40,10 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
             }
 
             //YOUR FUNCTION NAME
-            var fname = 'checkio';
+            var fname = 'decode_amsco';
 
-            var checkioInput = data.in;
-            var checkioInputStr = fname + '(' + JSON.stringify(checkioInput) + ')';
+            var checkioInput = data.in || ['kicheco', 23415];
+            var checkioInputStr = fname + '(u' + JSON.stringify(checkioInput[0]) + ', ' + checkioInput[1] + ")";
 
             var failError = function (dError) {
                 $content.find('.call').html(checkioInputStr);
@@ -79,6 +79,10 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
                 //if you need additional info from tests (if exists)
                 var explanation = data.ext["explanation"];
                 $content.find('.output').html('&nbsp;Your result:&nbsp;' + JSON.stringify(userResult));
+
+                var table = new CipherTable($content.find(".explanation"));
+                table.build(explanation, checkioInput[1]);
+
                 if (!result) {
                     $content.find('.answer').html('Right result:&nbsp;' + JSON.stringify(rightResult));
                     $content.find('.answer').addClass('error');
@@ -120,27 +124,26 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
 //                this_e.sendToConsoleCheckiO("something");
 //            });
 //        });
+        function CipherTable(dom) {
+            var $table = dom.find("table");
 
-        var colorOrange4 = "#F0801A";
-        var colorOrange3 = "#FA8F00";
-        var colorOrange2 = "#FAA600";
-        var colorOrange1 = "#FABA00";
+            this.build = function(data, key) {
+                var strKey = String(key);
+                var $tr = $("<tr></tr>");
+                for (var i = 0; i < strKey.length; i++) {
+                    $tr.append($("<th></th>").text(strKey[i]));
+                }
+                $table.append($tr);
+                for (var row = 0; row < data.length; row++) {
+                    $tr = $("<tr></tr>");
+                    for (var col = 0; col < data[row].length; col++) {
+                        $tr.append($("<td></td>").text(data[row][col]));
+                    }
+                    $table.append($tr);
+                }
+            }
+        }
 
-        var colorBlue4 = "#294270";
-        var colorBlue3 = "#006CA9";
-        var colorBlue2 = "#65A1CF";
-        var colorBlue1 = "#8FC7ED";
-
-        var colorGrey4 = "#737370";
-        var colorGrey3 = "#9D9E9E";
-        var colorGrey2 = "#C5C6C6";
-        var colorGrey1 = "#EBEDED";
-
-        var colorWhite = "#FFFFFF";
-        //Your Additional functions or objects inside scope
-        //
-        //
-        //
 
 
     }

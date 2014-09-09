@@ -58,6 +58,35 @@
     border-color: #de0202;
 }
 
+.animation-content .explanation table {
+    border-collapse: collapse;
+    font-family: Roboto, sans-serif !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.animation-content .explanation table th {
+    color: #F0801A;
+}
+.animation-content .explanation table td {
+    color: #294270;
+}
+
+
+.animation-content .explanation table th,
+.animation-content .explanation table td {
+    border: none;
+    padding: 2px 5px 2px 5px;
+    border-right: dotted 1px #737370;
+    text-align: center;
+    width: 30px;
+}
+
+.animation-content .explanation table th:last-child,
+.animation-content .explanation table td:last-child {
+    border-right: none;
+}
+
 .tryit-content {
     background-color: #dfe8f7;
     font-family: Verdana, Arial, helvetica, sans-serif;
