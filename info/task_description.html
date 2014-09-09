@@ -60,8 +60,13 @@ decode_amsco("oruoreemdstmioitlpslam", 4123) == "loremipsumdolorsitamet"
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
+    For any cipher is important to realize the both parts - encoding and decoding.
+    So even if you know only one part of that you can finalize an implementation.
 </p>
 
 <p>
     <strong>Precondition:</strong>
+    4 &le; len(key)<br>
+    int(len(key) * 1.5) &le; len(message)<br>
+    re.match("\w+", message)
 </p>
