@@ -62,7 +62,7 @@ decode_amsco("oruoreemdstmioitlpslam", 4123) == "loremipsumdolorsitamet"
 
 <p>
     <strong>Precondition:</strong>
-    4 &le; len(key)<br>
-    int(len(key) * 1.5) &le; len(message)<br>
-    re.match("\w+", message)
+    4 &le; len(str(key))<br>
+    int(len(str(key)) * 1.5) &le; len(message)<br>
+    re.match("\w+$", message)
 </p>
