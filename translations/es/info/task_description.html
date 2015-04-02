@@ -1,0 +1,39 @@
+<p>Echemos un vistazo al cifrado &ldquo;AMSCO&rdquo;. Este es un algoritmo de cifrado de posici&oacute;n con intercambios. Tu puedes f&aacute;cilmente usarlo para codificar o decodificar un mensaje utilizando solo l&aacute;piz y papel, asumiendo por supuesto, que conoces la clave (key).</p>
+
+<p>La clave es representada como un n&uacute;mero cuyos d&iacute;gitos (&uacute;nicos) van de 1 a N, siendo N la longitud de la clave. Para codificar un mensaje, debemos escribirlo en una matriz con N columnas. La matriz se escribe fila por fila y en este proceso, uno o dos caracteres se insertan alternativamente en cada celda. Adicionalmente, uno o dos caracteres se alternan en filas y columnas (como un tablero de ajedrez). El primer elemento es el campo de una sola letra (esta es la configuraci&oacute;n para esta misi&oacute;n). El &uacute;ltimo campo puede tener caracteres individuales, si no son suficientes.</p>
+
+<p>Despu&eacute;s se numeran las columnas con d&iacute;gitos de la clave ordenados. Por ejemplo: usando como clave 312, la primera columna ser&aacute; 3, la segunda es 1 y la tercera 2. Por &uacute;ltimo, se escriben todos los caracteres de las columnas, bas&aacute;ndose en la numeraci&oacute;n asignada en el paso anterior. Todos los espacios en blanco y signos de puntuaci&oacute;n se excluyen, y las letras se escriben en min&uacute;sculas.</p>
+
+<p>Veamos esto con un ejemplo. El mensaje de &quot;Lorem ipsum dolor sit amet&quot;. Y la clave es 4123. El mensaje de procesado es &quot;loremipsumdolorsitamet&quot;. Escrito en forma de matriz seria:</p>
+
+<pre>
+   4   1   2   3
+   l  or   e  mi
+  ps   u  md   o
+   l  or   s  it
+  am   e   t
+
+</pre>
+
+<p>Enseguida se escriben las columnas bas&aacute;ndose en la numeraci&oacute;n asignada, de forma ascendente - &quot;oruore&quot;, &quot;emdst&quot;, &quot;mioit&quot;, &quot;lpslam&quot;. El mensaje codificado es &quot;oruoreemdstmioitlpslam&quot;.</p>
+
+<p>Se te asignar&aacute; un mensaje codificado y la clave. Tu misi&oacute;n es decodificar el mensaje (por supuesto, en la versi&oacute;n procesada).</p>
+
+<p><strong>Datos de Entrada: </strong> Dos argumentos. El mensaje como una cadena (unicode) y la clave como entero (int).</p>
+
+<p><strong>Salida: </strong> El mensaje descifrado como una cadena (str).</p>
+
+<div class="for_info_only">
+<p><strong>Ejemplo:</strong></p>
+
+<pre class="brush: python">
+decode_amsco(&quot;oruoreemdstmioitlpslam&quot;, 4123) == &quot;loremipsumdolorsitamet&quot;
+
+    </pre>
+</div>
+
+<p class="for_info_only"><strong>&iquest;C&oacute;mo se usa?: </strong> Para cualquier algoritmo de cifrado, es importante conocer las dos partes - codificaci&oacute;n y decodificaci&oacute;n. De esta manera, incluso si solo conoces parte del cifrado, es posible realizar una implementaci&oacute;n.</p>
+
+<p><strong>Condiciones:</strong> 4 &le; len(str(key))<br />
+int(len(str(key)) * 1.5) &le; len(message)<br />
+re.match(&quot;\w+$&quot;, message)</p>
